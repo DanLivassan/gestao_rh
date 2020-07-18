@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gestao_rh.apps.empresa',
+    'gestao_rh.apps.funcionario',
 ]
 
 MIDDLEWARE = [
