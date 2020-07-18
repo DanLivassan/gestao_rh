@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'gestao_rh.apps.empresa',
     'gestao_rh.apps.funcionario',
     'gestao_rh.apps.departamento',
+    'gestao_rh.apps.registro_hora_extra',
+    'gestao_rh.apps.documento',
 ]
 
 MIDDLEWARE = [
