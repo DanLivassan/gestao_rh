@@ -4,14 +4,22 @@ Home Page
 {% endblock%}
 {% block content %}
 <div class="row">
-    <div style="background:#ff0000" class="col-sm">
-        Olá
+    <div class="col-sm">
+        {% if user.funcionario.empresa %}
+        <ul>
+            <li> <a class="btn btn-primary" href="{% url 'empresa-update' user.funcionario.empresa.id %}">Editar empresa</a></li>
+            <li><a class="btn btn-primary" href="{% utl funcionario-list %}">Gerenciar Funcionários</a></li>
+            <li><a class="btn btn-primary" href="{% utl departamentos-list %}">Gerenciar Departamentos</a></li>
+        </ul>
+        {% else %}
+            <a class="btn btn-primary" href="{% url 'empresa-create' %}">Criar empresa</a>
+        {% endif %}
     </div>
-    <div style="background:#00ff00" class="col-sm">
-        Seja
+    <div class="col-sm">
+        Seja bem vindo {{user.funcionario.nome}}
     </div>
-    <div style="background:#0000ff" class="col-sm">
-        <a href="{%url 'logout'%}">Sair</a>
+    <div class="col-sm">
+        <a class="btn btn-danger" href="{%url 'logout'%}">Sair</a>
     </div>
 </div>
 {% endblock %}
