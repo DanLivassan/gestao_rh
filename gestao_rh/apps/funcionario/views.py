@@ -31,6 +31,7 @@ class CreateFuncionario(CreateView):
         funcionario.save()
         return super(CreateFuncionario, self).form_valid(form)
 
+
 class UpdateFuncionario(UpdateView):
     model = Funcionario
     fields = ['departamentos', 'nome']

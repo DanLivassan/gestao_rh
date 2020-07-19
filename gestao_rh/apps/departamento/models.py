@@ -1,5 +1,6 @@
 from django.db import models
 from ..empresa.models import Empresa
+from django.shortcuts import reverse
 
 
 class Departamento(models.Model):
@@ -10,3 +11,6 @@ class Departamento(models.Model):
     def __str__(self):
         return self.nome
 
+    @staticmethod
+    def get_absolute_url():
+        reverse('departamento-list')

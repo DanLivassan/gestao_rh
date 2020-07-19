@@ -17,3 +17,5 @@ class CreateEmpresa(CreateView):
 class UpdateEmpresa(UpdateView):
     model = Empresa
     fields = ['nome']
+
+
