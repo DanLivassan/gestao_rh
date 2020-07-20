@@ -10,10 +10,23 @@ Atualizar Funcionário
     <input class="btn btn-primary" type="submit" value="Salvar">
 </form>
 <a class="btn btn-warning" href="{% url 'documento-create' object.id %}">Adicionar documentos</a>
+{% if object.documento_set.all|length > 0 %}
+<h2>Documentos</h2>
 <ul>
     {% for documento in object.documento_set.all %}
     <img src="{{documento.arquivo.url}}" alt="{{documento.descricao}}" class="img-thumbnail">
     <li><a href="{{documento.arquivo.url}}">{{documento}}</a></li>
     {% endfor %}
 </ul>
+{% endif %}
+<br>
+{% if object.horaextra_set.all|length > 0 %}
+<h2>Horas Extras</h2>
+<ul>
+    {% for hora_extra in object.horaextra_set.all %}
+        <li><a href="{% url 'hora_extra-update' hora_extra.id %}">{{hora_extra.motivo}} - {{hora_extra.horas}}</a></li>
+    {% endfor%}
+    <li><b>Total</b>: {{funcionario.get_total_horas_extra}}</li>
+</ul>
+{% endif %}
 {% endblock%}

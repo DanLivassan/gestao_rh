@@ -3,7 +3,7 @@ from django.db import models
 from django.shortcuts import reverse
 from ..departamento.models import Departamento
 from ..empresa.models import Empresa
-
+from django.db.models import Sum
 
 class Funcionario(models.Model):
     nome = models.CharField(max_length=100, help_text="Informe o nome")
@@ -17,3 +17,7 @@ class Funcionario(models.Model):
     @staticmethod
     def get_absolute_url():
         return reverse("funcionario-list")
+
+    @property
+    def get_total_horas_extra(self):
+        return self.horaextra_set.all().aggregate(Sum('horas'))['horas__sum']

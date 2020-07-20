@@ -24,12 +24,6 @@ class CreateHoraExtra(CreateView):
         kwargs.update({'user': self.request.user})
         return kwargs
 
-    def get_absolute_url(self):
-        return reverse('hora_extra-list')
-
-    def get_success_url(self):
-        return reverse('hora_extra-list')
-
 
 class UpdateHoraExtra(UpdateView):
     model = HoraExtra
@@ -41,9 +35,6 @@ class UpdateHoraExtra(UpdateView):
         kwargs.update({'user': self.request.user})
         return kwargs
 
-
-    def get_success_url(self):
-        return reverse('hora_extra-list')
 
 
 class DeleteHoraExtra(DeleteView):

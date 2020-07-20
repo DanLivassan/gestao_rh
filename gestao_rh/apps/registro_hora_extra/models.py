@@ -1,5 +1,6 @@
 from django.db import models
 from ..funcionario.models import Funcionario
+from django.shortcuts import reverse
 
 
 class HoraExtra(models.Model):
@@ -9,3 +10,6 @@ class HoraExtra(models.Model):
 
     def __str__(self):
         return self.motivo
+
+    def get_absolute_url(self):
+        reverse('funcionario-update', args=['6'])
