@@ -10,6 +10,7 @@ Home Page
             <li> <a class="btn btn-primary" href="{% url 'empresa-update' user.funcionario.empresa.id %}">Editar empresa</a></li>
             <li><a class="btn btn-primary" href="{% url 'funcionario-list' %}">Gerenciar Funcionários</a></li>
             <li><a class="btn btn-primary" href="{% url 'departamento-list' %}">Gerenciar Departamentos</a></li>
+            <li><a class="btn btn-primary" href="{% url 'hora-extra-list' %}">Horas extras</a></li>
         </ul>
         {% else %}
             <a class="btn btn-primary" href="{% url 'empresa-create' %}">Criar empresa</a>

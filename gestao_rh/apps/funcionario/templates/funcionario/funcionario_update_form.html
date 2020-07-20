@@ -1,11 +1,19 @@
 {% extends "base.html" %}
+{% load bootstrap %}
 {% block title%}
 Atualizar Funcionário
 {% endblock %}
 
 {% block content %}
 <form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Salvar">
+    {{ form | bootstrap }}
+    <input class="btn btn-primary" type="submit" value="Salvar">
 </form>
+<a class="btn btn-warning" href="{% url 'documento-create' object.id %}">Adicionar documentos</a>
+<ul>
+    {% for documento in object.documento_set.all %}
+    <img src="{{documento.arquivo.url}}" alt="{{documento.descricao}}" class="img-thumbnail">
+    <li><a href="{{documento.arquivo.url}}">{{documento}}</a></li>
+    {% endfor %}
+</ul>
 {% endblock%}

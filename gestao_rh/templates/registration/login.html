@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load bootstrap %}
 {% block title %}
 Login
 {% endblock %}
@@ -14,8 +14,8 @@ Login
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="" method="post">
                             {% csrf_token %}
-                            {{ form.as_p}}
-                            <button type="submit">Entrar</button>
+                            {{ form | bootstrap}}
+                            <button class="btn btn-primary btn-block" type="submit">Entrar</button>
                         </form>
                     </div>
                 </div>

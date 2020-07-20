@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load bootstrap %}
 {% block title%}
-Criar Funcionário
+Atualizar Funcionário
 {% endblock %}
 
 {% block content %}
@@ -9,4 +9,5 @@ Criar Funcionário
     {{ form | bootstrap }}
     <input class="btn btn-primary" type="submit" value="Salvar">
 </form>
+<a class="btn btn-warning" href="{% url 'documento-create' %}">Adicionar documentos</a>
 {% endblock%}

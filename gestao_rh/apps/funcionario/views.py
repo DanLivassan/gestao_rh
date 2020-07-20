@@ -20,7 +20,7 @@ class ListFuncionario(ListView):
 
 class CreateFuncionario(CreateView):
     model = Funcionario
-    fields = ['departamentos', 'nome']
+    fields = ['nome', 'departamentos']
     template_name_suffix = '_create_form'
 
     def form_valid(self, form):
@@ -34,7 +34,7 @@ class CreateFuncionario(CreateView):
 
 class UpdateFuncionario(UpdateView):
     model = Funcionario
-    fields = ['departamentos', 'nome']
+    fields = ['nome', 'departamentos']
     template_name_suffix = '_update_form'
 
 

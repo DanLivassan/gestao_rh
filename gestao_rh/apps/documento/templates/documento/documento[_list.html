@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lista de Funcionários
+{% endblock %}
+
+{%block content%}
+<a class="btn btn-primary" href="{% url 'funcionario-create' %}">Novo</a>
+<ul>
+
+    {% for funcionario in object_list %}
+        <li><a href="{% url 'funcionario-update' funcionario.id %}">{{funcionario.nome}}</a> <a class="btn btn-danger" href="{% url 'funcionario-delete' funcionario.id%}">X</a></li>
+    {% empty %}
+        <li>Sem funcionários</li>
+    {% endfor %}
+    </ul>
+{%endblock%}
