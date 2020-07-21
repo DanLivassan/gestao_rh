@@ -1,6 +1,6 @@
 from django.db import models
 from ..funcionario.models import Funcionario
-from django.shortcuts import reverse
+from django.shortcuts import reverse, redirect
 
 
 class HoraExtra(models.Model):
@@ -12,4 +12,4 @@ class HoraExtra(models.Model):
         return self.motivo
 
     def get_absolute_url(self):
-        reverse('funcionario-update', args=['6'])
+        return redirect('funcionario-update', [self.funcionario.id])
