@@ -36,7 +36,6 @@ class UpdateHoraExtra(UpdateView):
         return kwargs
 
 
-
 class DeleteHoraExtra(DeleteView):
     model = HoraExtra
     success_url = reverse_lazy('hora_extra-list')

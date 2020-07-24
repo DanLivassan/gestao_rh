@@ -12,4 +12,4 @@ class HoraExtra(models.Model):
         return self.motivo
 
     def get_absolute_url(self):
-        return redirect('funcionario-update', [self.funcionario.id])
+        return reverse('funcionario-update', args=[self.funcionario.id])

@@ -5,6 +5,7 @@ from ..departamento.models import Departamento
 from ..empresa.models import Empresa
 from django.db.models import Sum
 
+
 class Funcionario(models.Model):
     nome = models.CharField(max_length=100, help_text="Informe o nome")
     user = models.OneToOneField(User, on_delete=models.PROTECT)
@@ -20,4 +21,5 @@ class Funcionario(models.Model):
 
     @property
     def get_total_horas_extra(self):
-        return self.horaextra_set.all().aggregate(Sum('horas'))['horas__sum']
+        total = self.horaextra_set.all().aggregate(Sum('horas'))['horas__sum']
+        return '{:.2f}'.format(total)
