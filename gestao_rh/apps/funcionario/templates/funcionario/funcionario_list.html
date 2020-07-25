@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}
 Lista de Funcionários
 {% endblock %}
@@ -15,3 +15,9 @@ Lista de Funcionários
     {% endfor %}
     </ul>
 {%endblock%}
+
+{% block scripts_librarys %}
+<script src="{% static 'js/funcionario.app.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+{% endblock %}

@@ -8,4 +8,5 @@ urlpatterns = [
     path('update/<pk>', UpdateFuncionario.as_view(), name="funcionario-update"),
     path('delete/<pk>', DeleteFuncionario.as_view(), name="funcionario-delete"),
     path('create/', CreateFuncionario.as_view(), name="funcionario-create"),
+
 ]

@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'gestao_rh.apps.registro_hora_extra',
     'gestao_rh.apps.documento',
     'gestao_rh.apps.home',
+    'gestao_rh.apps.pdf',
     'bootstrapform',
 ]
 

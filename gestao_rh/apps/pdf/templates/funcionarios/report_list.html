@@ -1,0 +1,43 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+     <meta charset="UTF-8">
+    <style>
+        table{
+        }
+        table>th{
+            width:20%;
+        }
+        .table_title{
+            font-size: 12px;
+        }
+        table>td{
+            width:20%;
+        }
+    </style>
+</head>
+<body>
+   <table>
+       <tr>
+           <th>Data: {{data}}</th>
+           <th></th>
+           <th class="table_title">RELATÓRIO | {{nome}}</th>
+           <th></th>
+           <th>{{empresa}}</th>
+       </tr>
+       {% for hora_extra in horas_extra %}
+       <tr>
+
+               <td>{{hora_extra.motivo}}</td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td>{{hora_extra.horas}}</td>
+       </tr>
+       {% endfor %}
+   </table>
+</body>
+
+</html>
+

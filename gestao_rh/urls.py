@@ -13,4 +13,5 @@ urlpatterns = [
     path('hora-extra/', include('gestao_rh.apps.registro_hora_extra.urls')),
     path('', include('gestao_rh.apps.home.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('pdf/', include('gestao_rh.apps.pdf.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,3 +1,9 @@
+import json
+
+from django.http import HttpResponse, JsonResponse
+
+from django.shortcuts import get_object_or_404
+from django.views import View
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import HoraExtra
@@ -39,3 +45,20 @@ class UpdateHoraExtra(UpdateView):
 class DeleteHoraExtra(DeleteView):
     model = HoraExtra
     success_url = reverse_lazy('hora_extra-list')
+
+
+class ListJsHoraExtra(View):
+
+    def get(self, request, *args, **kwargs):
+        funcionario  = get_object_or_404(Funcionario, pk=kwargs['funcionario_id'])
+        horas_extras = list(funcionario.horaextra_set.all().values())
+        return JsonResponse(horas_extras, safe=False)
+
+
+class CreateJsHoraExtra(View):
+    def post(self, *args, **kwargs):
+        data = json.loads(json.dumps(self.request.POST))
+        funcionario = get_object_or_404(Funcionario, pk=data['funcionario_id'])
+        hora_extra = HoraExtra(funcionario=funcionario, motivo='motivo', horas = data['horas'])
+        hora_extra.save()
+        return HttpResponse("")

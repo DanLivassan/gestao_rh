@@ -1,9 +1,11 @@
 from django.contrib.auth.models import User
 from django.http import HttpResponse
+from django.views import View
 from django.views.generic.list import ListView
 from .models import Funcionario
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
+import json
 
 def home(request):
     return HttpResponse("Funcionando")
@@ -30,6 +32,9 @@ class CreateFuncionario(CreateView):
         funcionario.user = User.objects.create(username=username)
         funcionario.save()
         return super(CreateFuncionario, self).form_valid(form)
+
+
+
 
 
 class UpdateFuncionario(UpdateView):
