@@ -1,3 +1,5 @@
+import csv
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.views import View
@@ -34,9 +36,6 @@ class CreateFuncionario(CreateView):
         return super(CreateFuncionario, self).form_valid(form)
 
 
-
-
-
 class UpdateFuncionario(UpdateView):
     model = Funcionario
     fields = ['nome', 'departamentos']
@@ -46,3 +45,17 @@ class UpdateFuncionario(UpdateView):
 class DeleteFuncionario(DeleteView):
     model = Funcionario
     success_url = reverse_lazy('funcionario-list')
+
+
+class CSVFuncionario(View):
+
+    def get(self, request, pk):
+        # Create the HttpResponse object with the appropriate CSV header.
+        response = HttpResponse(content_type='text/csv')
+        funcionario = get_object_or_404(Funcionario, pk=pk)
+        response['Content-Disposition'] = 'attachment; filename="'+funcionario.nome+'.csv"'
+        writer = csv.writer(response)
+        writer.writerow([funcionario.nome, funcionario.empresa])
+        for horas in funcionario.horaextra_set.all():
+            writer.writerow([horas.motivo, horas.horas])
+        return response

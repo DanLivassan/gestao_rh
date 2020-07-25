@@ -40,7 +40,7 @@ class Render:
                 content_type="application/pdf"
             )
 
-            #response['Content-Disposition'] = "attachment;filename=%s.pdf" % filename
+            response['Content-Disposition'] = "attachment;filename=%s.pdf" % filename
             return response
         else:
             return HttpResponse("Error rendering the pdf", status=400)

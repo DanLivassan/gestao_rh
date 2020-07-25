@@ -9,7 +9,13 @@ Lista de Funcionários
 <ul>
 
     {% for funcionario in object_list %}
-        <li><a href="{% url 'funcionario-update' funcionario.id %}">{{funcionario.nome}}</a> <a class="btn btn-danger" href="{% url 'funcionario-delete' funcionario.id%}">X</a></li>
+        <li>
+            <a href="{% url 'funcionario-update' funcionario.id %}">{{funcionario.nome}}</a>
+            <div class="btn-group">
+                <a class="btn btn-danger" href="{% url 'funcionario-delete' funcionario.id%}">X</a>
+                <a href="{% url 'funcionario-csv' funcionario.id %}" class="btn btn-info">CSV</a>
+            </div>
+        </li>
     {% empty %}
         <li>Sem funcionários</li>
     {% endfor %}
