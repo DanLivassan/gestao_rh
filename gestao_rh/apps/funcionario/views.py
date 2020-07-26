@@ -6,7 +6,7 @@ from django.views.generic.list import ListView
 from .models import Funcionario
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
-import json
+from .tasks import send_email_app
 from django.contrib.auth.models import User
 
 
@@ -63,3 +63,6 @@ class CSVFuncionario(View):
         return response
 
 
+def celery(request):
+    send_email_app.delay("Acelerada")
+    return HttpResponse("Tarefa setada")
