@@ -8,7 +8,7 @@ Home Page
         {% if user.funcionario.empresa %}
         <ul>
             <li> <a class="btn btn-primary" href="{% url 'empresa-update' user.funcionario.empresa.id %}">Editar empresa</a></li>
-            <li><a class="btn btn-primary" href="{% url 'funcionario-list' %}">Gerenciar Funcionários</a></li>
+            <li><a class="btn btn-primary" href="{% url 'funcionario-lista' %}">Gerenciar Funcionários</a></li>
             <li><a class="btn btn-primary" href="{% url 'departamento-list' %}">Gerenciar Departamentos</a></li>
             <li><a class="btn btn-primary" href="{% url 'hora_extra-list' %}">Horas extras</a></li>
         </ul>

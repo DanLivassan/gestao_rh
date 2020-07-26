@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'gestao_rh.apps.home',
     'gestao_rh.apps.pdf',
     'bootstrapform',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,5 @@
 import csv
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.views import View
 from django.views.generic.list import ListView
@@ -8,6 +7,9 @@ from .models import Funcionario
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
 import json
+from django.contrib.auth.models import User
+
+
 
 def home(request):
     return HttpResponse("Funcionando")
@@ -24,7 +26,7 @@ class ListFuncionario(ListView):
 
 class CreateFuncionario(CreateView):
     model = Funcionario
-    fields = ['nome', 'departamentos']
+    fields = ['nome', 'departamentos', 'imagem']
     template_name_suffix = '_create_form'
 
     def form_valid(self, form):
@@ -38,7 +40,7 @@ class CreateFuncionario(CreateView):
 
 class UpdateFuncionario(UpdateView):
     model = Funcionario
-    fields = ['nome', 'departamentos']
+    fields = ['nome', 'departamentos', 'imagem']
     template_name_suffix = '_update_form'
 
 
@@ -59,3 +61,5 @@ class CSVFuncionario(View):
         for horas in funcionario.horaextra_set.all():
             writer.writerow([horas.motivo, horas.horas])
         return response
+
+
