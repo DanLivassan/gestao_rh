@@ -18,4 +18,5 @@ urlpatterns = [
     path('funcionario-csv/<pk>', CSVFuncionario.as_view(), name="funcionario-csv"),
     path('celery/', celery, name='celery')
 
+
 ]
