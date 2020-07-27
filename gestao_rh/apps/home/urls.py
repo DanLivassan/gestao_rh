@@ -1,6 +1,7 @@
-from .views import index
+from .views import index, new_index
 from django.urls import path
 
 urlpatterns = [
-    path('', index, name='home')
+    path('old', index, name='home'),
+    path('', new_index, name='new-index')
 ]
